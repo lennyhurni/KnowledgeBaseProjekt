@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+  <h1>Willkommen zur Knowledge Base Plattform</h1>
+  <p>Wählen Sie eine der folgenden Optionen:</p>
+  <ul>
+    <li><a href="{% url 'chatbot_list' %}">Chatbots anzeigen</a></li>
+    <li><a href="{% url 'document_list' %}">Dokumente verwalten</a></li>
+  </ul>
+{% endblock %}

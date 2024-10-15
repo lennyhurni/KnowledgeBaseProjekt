@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<h2>Interaktion mit Chatbot: {{ chatbot.name }}</h2>
+<form method="post">
+    {% csrf_token %}
+    <label for="query">Ihre Frage:</label>
+    <input type="text" id="query" name="query" required>
+    <button type="submit">Senden</button>
+</form>
+
+{% if response %}
+    <h3>Antwort:</h3>
+    <p>{{ response }}</p>
+{% endif %}
+
+<a href="{% url 'chatbot_list' %}">Zurück zur Chatbot-Liste</a>
+{% endblock %}

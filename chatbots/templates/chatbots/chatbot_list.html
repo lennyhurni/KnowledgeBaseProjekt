@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<h2>Ihre Chatbots</h2>
+<form method="get" action="">
+    <input type="text" name="q" placeholder="Chatbots durchsuchen">
+    <button type="submit">Suchen</button>
+</form>
+<ul>
+    {% for chatbot in chatbots %}
+        <li>
+            {{ chatbot.name }} - Status: {{ chatbot.status }}
+            {% if chatbot.status == 'Bereit' %}
+                - <a href="{% url 'delete_chatbot' chatbot.id %}">Löschen</a>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'create_chatbot' %}">Neuen Chatbot erstellen</a>
+{% endblock %}

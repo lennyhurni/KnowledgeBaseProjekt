@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Ihre Dokumente</h2>
+{% for folder in folders %}
+    <h3>{{ folder.name }}</h3>
+    <ul>
+        {% for document in folder.documents.all %}
+            <li>
+                {{ document.name }}
+                - <a href="{% url 'delete_document' document.id %}">Löschen</a>
+                - <a href="{% url 'document_detail' document.id %}">Details</a>
+                - <a href="{{ document.file.url }}">Herunterladen</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endfor %}
+
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; Erste</a>
+            <a href="?page={{ page_obj.previous_page_number }}">Zurück</a>
+        {% endif %}
+
+        <span class="current">
+            Seite {{ page_obj.number }} von {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">Weiter</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">Letzte &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+  <h1>{{ chatbot.name }}</h1>
+  <p>Status: {{ chatbot.status }}</p>
+  <p>Ordner:</p>
+  <ul>
+    {% for folder in chatbot.folders.all %}
+      <li>{{ folder.name }}</li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'chatbot_list' %}">Zurück zur Chatbot-Liste</a>
+{% endblock %}
