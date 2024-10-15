@@ -10,8 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Sicherheitseinstellungen
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'unsichere-standardschlüssel')
 DEBUG = os.getenv('DEBUG', 'True') == 'True'
-# ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
 
 
 # Installierte Apps
@@ -99,6 +98,7 @@ USE_TZ = True
 
 # Statische Dateien (CSS, JavaScript, Bilder)
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]

@@ -1,0 +1,11 @@
+Django==5.1.2
+django-environ
+Pillow
+boto3
+pinecone-client
+cohere
+openai
+cryptography
+djangorestframework
+celery
+python-dotenv
