@@ -1,0 +1,34 @@
+# Python Bytecode-Dateien
+*.py[cod]
+__pycache__/
+*$py.class
+
+# Virtuelle Umgebungen
+venv/
+ENV/
+env/
+
+# Umgebungsvariablen-Datei
+.env
+
+# Django spezifische Dateien
+db.sqlite3
+media/
+staticfiles/
+
+# Log-Dateien
+*.log
+
+# Betriebssystem-Dateien
+.DS_Store
+Thumbs.db
+
+# IDE- und Editor-Dateien
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Sonstiges
+*.bak
+*.swp
